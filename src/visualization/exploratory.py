@@ -9,7 +9,9 @@ from data import read_processed_data
 
 
 def exploratory_visualization(dframe):
-    return sns.pairplot(dframe, vars=['x0', 'x1', 'x2', 'x3'], hue='y')
+    return sns.pairplot(dframe,
+                        diag_kind='kde',
+                        vars=['x0', 'x1', 'x2', 'x3'], hue='y')
 
 
 @click.command()
