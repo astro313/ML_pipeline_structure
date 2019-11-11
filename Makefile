@@ -4,9 +4,20 @@ all:     # default make will execute the first target only
 	src/data/raw/iris.csv
 
 clean:
-	rm -rf src/data/raw/*.csv
+	rm -f src/data/raw/*.csv
+	rm -f src/data/processed/*.pickle
+	rm -f src/data/processed/*.xlsx
+	rm -f reports/figures/*.png
 
 src/data/raw/iris.csv:       # target name, which will be called with make blah
 	python src/data/download.py $(IRIS_URL) $@   # $@: first target in a rule
+
+# rule for plotting
+src/reports/figures/exploratory.png: data/processed/processed.pickle
+	python src/visualization/exploratory.py $< $@   # $< first dependency, $@ filename of target
+
+# rule for preprocessing
+src/processed/processed.pickled: src/data/raw/iris.csv
+	python src/data/preprocess.py $< $@ --excel src/data/processed/processed.xlsx
 
 .PHONY: all clean      # targets that do not create files
