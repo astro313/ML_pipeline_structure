@@ -15,16 +15,31 @@
 # %load_ext watermark
 # %watermark -v -n -m -p numpy,scipy,sklearn,pandas,matplotlib
 
+# auto-reload .py scripts that we will import in the .ipynb
+# %load_ext autoreload
+# %autoreload 2
+
 # %matplotlib inline
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import os
-PROJ_ROOT = os.path.abspath(os.path.join(os.pardir))
+PROJ_ROOT = os.path.abspath('./')
 print(PROJ_ROOT)
 
-os.path.join(os.pardir)
+import sys
+sys.path.append(os.path.join(PROJ_ROOT, 'src'))
 
-data_fname = os.path.join(PROJ_ROOT, '', 'data', 'raw', 'iris.csv')
-dframe = pd.read_csv(data_fname, header=None)
-dframe.head()
+from data.preprocess import read_raw_data, preprocess_data
+from visualization.exploratory import exploratory_visualization
+
+data_fname = os.path.join(PROJ_ROOT, 'src', 'data', 'raw', 'iris.csv')
+raw_data = read_raw_data(data_fname)
+raw_data.head()
+
+preprocessed_data = preprocess_data(raw_data)
+preprocessed_data.head()
+
+exploratory_visualization(preprocessed_data) 
+
+
