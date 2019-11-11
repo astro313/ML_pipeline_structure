@@ -17,5 +17,12 @@ structure of a ML repo
     - download: data
 12. Jupyter notebook 00-initial-EDA.ipynb
 13. then write corresponding .py script (src/data/preprocess.py)
-14. write __init__.py
+14. write __init__.py to src/data/, src/
 15. write src/visualization/exploratory.py for plotting
+16. updated 00-initial-EDA.ipynb to load libraries
+17. ML testing: write src/tests/test_data.py
+    - can from src.data import <functions within .py inside src/data/>
+18. write __init__.py to src/tests/
+19. cd src/
+20. pytest 
+21. add test to makefile
