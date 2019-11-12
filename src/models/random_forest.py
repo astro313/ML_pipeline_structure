@@ -5,9 +5,9 @@ from data import get_featues, get_label
 from sklearn.ensemble import RandomForestClassifier
 
 class RandomForestModel(object):
-    def __init__(self, n_estimator=50, max_depth=700):
-        self.clf = RandomForestClassifier(n_estimator=n_estimator,
-                                          max_depth=max_depth)
+    def __init__(self):
+        self.clf = RandomForestClassifier(n_estimators=50,
+                                          max_depth=700)
         self.name = 'RandomForest'
 
     def get_params(self):
@@ -16,7 +16,7 @@ class RandomForestModel(object):
     def train(self, dframe):
         # from preprocess.py
         X = get_featues(dframe)
-        Y = get_label(dframe)
+        y = get_label(dframe)
         self.clf.fit(X, y)
 
     def predict(self, X):
