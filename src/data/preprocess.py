@@ -10,7 +10,7 @@ def get_label(dframe):
     return dframe['y']
 
 
-def read_raw_data(fname='data/raw/iris.csv'):
+def read_raw_data(fname='src/data/raw/iris.csv'):
     dframe = pd.read_csv(fname, header=None)
     return dframe
 
@@ -22,7 +22,7 @@ def preprocess_data(dframe):
     return dframe
 
 
-def read_processed_data(fname='data/processed/processed.pickle'):
+def read_processed_data(fname='src/data/processed/processed.pickle'):
     dframe = pd.read_pickle(fname)
     return dframe
 
