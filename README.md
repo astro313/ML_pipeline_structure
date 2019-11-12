@@ -1,4 +1,4 @@
-structure of a ML repo
+structure of a ML pipeline repo using GNU Make
 
 1. create environment.yml
 2. `conda env create -f environment.yml -n someMLrepo`
