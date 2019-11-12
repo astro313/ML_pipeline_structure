@@ -2,7 +2,7 @@ IRIS_URL="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.da
 
 .PHONY: all clean test    # targets that do not create files
 
-all: src/reports/figures/exploratory.png models/random_forest.model
+all: src/reports/figures/exploratory.png src/models/random_forest.model
 
 help:
 	@echo "    clean"
